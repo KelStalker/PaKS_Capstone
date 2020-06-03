@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xwcAigaoJZjZKzyM4MXLsToE4HBT9WY76wVdfkw1I0L9/i2zU3K1A46IMsiSEnud9r1aexY1mFLa8DvhGCi76A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kelst\\Desktop\\MANPOWER\\PaKS_Capstone\\PaKS_Backend\\PaKS_Backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kelst\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
