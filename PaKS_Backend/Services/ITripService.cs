@@ -16,8 +16,6 @@ namespace PaKS_Backend.Services
             Task<bool> ToggleTripInstanceGoing(Guid id);
             Task<bool> DeleteTripInstance(Guid id);
 
-
-
         }
     }
 }
