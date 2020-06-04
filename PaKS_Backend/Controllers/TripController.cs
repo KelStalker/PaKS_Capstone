@@ -18,7 +18,7 @@ namespace PaKS_Backend.Controllers
         { 
         /**
          * <remarks>
-         * Method: Get
+         * Method: GET
          * Path: {base)/api/trip
          * Query Parameters: {base}/api/trip/:isGoing
          * </remarks>
@@ -37,10 +37,15 @@ namespace PaKS_Backend.Controllers
             return Ok(await _tripService.GetTrips(isGoing));
         }
 
-        /*
+        /**
          * <remarks>
+         * Method: POST
+         * Path: {base}/api/trip
+         * </remarks>
          * 
          * <summary>
+         * Create a brand new trip based on the JSON provided
+         * </summary>
          * 
          */
         [HttpPost]
@@ -57,6 +62,59 @@ namespace PaKS_Backend.Controllers
             
             return Ok();
         }
-        
+
+        /**
+         * <remarks>
+         * Method: PATCH
+         * Path: {base}api/trip/TripID
+         * NOTE that the above 'TripID' is in the 'Route' of the method below,
+         *   and is required to pass in via the URL being used to access the API
+         * </remarks>
+         * 
+         * <summary>
+         * Updates an existing trip as to whether the user is going or not going
+         *   - represented as a checkbox/toggle field
+         * </summary>
+         */
+
+        [HttpPatch]
+        public async Task<IActionResult> ToggleTripIsGoingYesNo([FromRoute] Guid TripID)
+        {
+            try
+            {
+                await _tripService.ToggleTripIsGoing(TripID);
+
+            } catch (Exception ex)
+            {
+                return StatusCode(500);  // INTERNAL SERVER ERROR
+                //  No 'built in' method in .NET core so this is a way to do so
+                //  Returns 500 as we don't want the external clients to know of
+                //  the exact exception we have on our backend.  Just a way of saying
+                // 'something' went wrong without really saying what went wrong...
+            }
+        }
+
+        /**
+         * <remarks>
+         * Method: PUT
+         * Path: {base}/api/trip/TripID
+         * </remarks>
+         * 
+         * <summary>
+         * Updates an already existing Trip with Brand new data (eg: new flight schedule)
+         * Not just marking a trip as going/notgoing (although if you ONLY updated that field
+         * it could potentially do so. 
+         * </summary>
+         */
+
+        [HttpPut ("{id}")]
+        public async Task<IActionResult> UpdateExistingTripFully([FromRoute] Guid TripID, [FromBody] TripController trip)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+        }
+
     }
 }
