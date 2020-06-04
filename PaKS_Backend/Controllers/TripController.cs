@@ -32,7 +32,7 @@ namespace PaKS_Backend.Controllers
         [HttpGet]  //31m
 
         public async Task<IActionResult> GetTrips([FromQuery(Name = "isgoing")] bool isGoing)
-        
+
         {
             return Ok(await _tripService.GetTrips(isGoing));
         }
@@ -59,7 +59,7 @@ namespace PaKS_Backend.Controllers
 
             // The following line simply calls the trip Service and adds a new trip
             await _tripService.addTrip(trip);  //need to still build _tripService
-            
+
             return Ok();
         }
 
@@ -107,13 +107,49 @@ namespace PaKS_Backend.Controllers
          * </summary>
          */
 
-        [HttpPut ("{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateExistingTripFully([FromRoute] Guid TripID, [FromBody] TripController trip)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            try
+            {
+                await _tripService.CompletelyUpdateTrip(trip);
+            } catch (Exception ex)
+            {
+                return StatusCode(500);
+
+            }
+
+            return Ok();
+        }
+
+        /**
+         * <remarks>
+         * method: DELETE
+         * Path: {base}/api/trip/:TripID
+         * </remarks>
+         * 
+         * <summary>
+         * Delete the trip with the matching ID from the database
+         * </summary>
+         */
+        [HttpDelete("{TripID}")]
+        public async Task<IActionResult> DeleteTrip([FromRoute] Guid TripID)
+        {
+            try
+            {
+                await _tripService.DeleteTrip(TripID);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+
+            return Ok();
         }
 
     }
