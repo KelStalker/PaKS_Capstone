@@ -9,10 +9,10 @@ namespace PaKS_Backend.Services
     {
         public interface ITripService
         {
-            Task<TripInstance[]> GetTripInstances(bool isGoing);
+            Task<TripInstance[]> GetTripInstances(bool isDone);
 
             Task<bool> AddTrip(TripInstance newTrip);
-            Task<bool> CompletelyUpdateTripInstance(TripInstance newTrip);
+            Task<bool> UpdateEntireTripInstance(TripInstance newTrip);
             Task<bool> ToggleTripInstanceGoing(Guid id);
             Task<bool> DeleteTripInstance(Guid id);
         }

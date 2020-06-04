@@ -26,18 +26,37 @@ namespace PaKS_Backend.Controllers
          * <summary>
          * Gets all of the trips from the trip table
          * </summary>
+         * 
+         * localhost:5000/api/Trip
          */
         [HttpGet]  //31m
 
         public async Task<IActionResult> GetTrips([FromQuery(Name = "isgoing")] bool isGoing)
+        
         {
-            return Ok(await _tripService.GetTrips(isCopied);
+            return Ok(await _tripService.GetTrips(isGoing));
+        }
+
+        /*
+         * <remarks>
+         * 
+         * <summary>
+         * 
+         */
+        [HttpPost]
+        public async Task<IActionResult> CreateNewTrip([FromBody] Trip trip)
+        // NOTE that 'fromBody' is a keyword is still in the method argument
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            // The following line simply calls the trip Service and adds a new trip
+            await _tripService.addTrip(trip);  //need to still build _tripService
+            
+            return Ok();
         }
         
-    }
-
-
-   
-    {
     }
 }
