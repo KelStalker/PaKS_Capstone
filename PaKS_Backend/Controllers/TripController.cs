@@ -15,7 +15,7 @@ namespace PaKS_Backend.Controllers
         //private readonly ITripService _tripService;
 
         //public TripController(ITripService tripService)
-        { 
+
         /**
          * <remarks>
          * Method: GET
@@ -31,10 +31,10 @@ namespace PaKS_Backend.Controllers
          */
         [HttpGet]  //31m
 
-        public async Task<IActionResult> GetTrips([FromQuery(Name = "isgoing")] bool isGoing)
+        public async Task<IActionResult> GetTrips([FromQuery(Name = "isChecked")] bool isChecked)
 
         {
-            return Ok(await _tripService.GetTrips(isGoing));
+            return Ok(await _tripService.GetTrips(isChecked));
         }
 
         /**
