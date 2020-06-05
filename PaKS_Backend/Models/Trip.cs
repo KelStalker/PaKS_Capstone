@@ -30,7 +30,7 @@ namespace PaKS_Backend.Models
     {
         public Guid ItemID { get; set; }
         public string ItemName { get; set; }
-        public int ItemQuantity
+        public int ItemQuantity { get; set; }
 
     }
 }
