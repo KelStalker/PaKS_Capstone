@@ -12,15 +12,18 @@ namespace PaKS_Backend.Controllers
 
     public class TripController : ControllerBase
     {
-        //private readonly ITripService _tripService;
+        private readonly ITripService _tripService;
 
-        //public TripController(ITripService tripService)
+        public TripController(ITripService tripService)
+        {
+            _tripService = tripService;
+        }
 
         /**
          * <remarks>
          * Method: GET
          * Path: {base)/api/trip
-         * Query Parameters: {base}/api/trip/:isGoing
+         * Query Parameters: {base}/api/trip/:isChecked
          * </remarks>
          * 
          * <summary>

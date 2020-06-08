@@ -1,0 +1,9 @@
+16:47:29	 From  Kel : https://www.learnentityframeworkcore.com/configuration/data-annotation-attributes/foreignkey-attribute
+17:03:58	 From  Cole Evans : https://stackoverflow.com/questions/55629131/how-to-fix-unable-to-determine-the-relationship-represented-by-navigation-prope
+17:09:37	 From  Cole Evans : https://www.learnentityframeworkcore.com/configuration/many-to-many-relationship-configuration
+17:10:45	 From  Cole Evans : SQLite expert personal
+17:14:35	 From  Cole Evans : https://www.learnentityframeworkcore.com/configuration/one-to-many-relationship-configuration
+17:19:15	 From  Cole Evans : https://stackoverflow.com/questions/40703615/the-entity-type-identityuserloginstring-requires-a-primary-key-to-be-defined
+17:26:29	 From  Cole Evans : =====================https://www.learnentityframeworkcore.com/configuration/one-to-many-relationship-configuration
+17:39:54	 From  Cole Evans : https://stackoverflow.com/questions/39390536/setup-one-to-many-without-foreign-key-entity-framework
+17:53:20	 From  Cole Evans : version of entity framework????

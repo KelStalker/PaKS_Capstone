@@ -14,5 +14,6 @@ namespace PaKS_Backend.Models
         public string FName { get; set; }
         public string LName { get; set; }
         public int TelephoneNumber { get; set; }
+        public ICollection<TripTable> TripsForThisUser { get; set; }
     }
 }
